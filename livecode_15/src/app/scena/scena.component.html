@@ -1,0 +1,19 @@
+<div class="flex flex-grow p-16">
+    <div class="bg-slate-200 shadow flex flex-grow flex-col relative">
+        <div class="p-4 space-x-2">
+            <button (click)="makeScreenshot()"
+                class="p-2 bg-slate-800 hover:bg-slate-400 text-white">Screenshot</button>
+            <button (click)="downloadScreenshot()" class="p-2 bg-slate-800 hover:bg-slate-400 text-white">Screenshot
+                (download)</button>
+            <button class="p-2 bg-green-600 text-white">Current click: {{currentClickedName}}</button>
+            <button class="p-2 bg-gray-600 text-white">Current hover: {{currentHoverName}}</button>
+
+        </div>
+        <div #canvascontainer style="width: 100%; height: 100%;position: relative;">
+            <div class="absolute top-0 w-96 z-50 border-2 border-black" *ngIf="currentBuffer!=null">
+                <img [src]="currentBuffer" height="100%" />
+            </div>
+            <canvas #canvas style="position: absolute;top: 0;"></canvas>
+        </div>
+    </div>
+</div>
